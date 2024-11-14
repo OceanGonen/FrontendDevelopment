@@ -1,0 +1,11 @@
+@font-face {
+    font-family: "MyCustomFont";
+    src: url("./fonts/Italiana,Noto_Sans,Roboto.zip");
+  }
+
+
+body {
+    background-color: aliceblue;
+    font-family: "MyCustomFont";
+}
+
