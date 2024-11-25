@@ -40,11 +40,11 @@ Nb. Door *open* toe te voegen aan een *details* element kun je deze standaard op
 
   #### Screenshot(s) van de eerste pagina (small screen): 
   hier de naam van de pagina  
-  <img src="images/reshape.pl_.png" width="375px" alt="Start pagina">
+  <img src="images/reshape.pl_(iPhone SE).png" width="375px" alt="Start pagina">
 
   #### Screenshot(s) van de tweede pagina (small screen):
   hier de naam van de pagina  
-  <img src="images/reshape.pl_rezerwacja-squasha.png" width="375px" alt="Squash reserveerpagina">
+  <img src="images/reshape.pl_rezerwacja-squasha(iPhone SE).png" width="375px" alt="Squash reserveerpagina">
  
 </details>
 
