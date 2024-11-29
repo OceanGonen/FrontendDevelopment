@@ -2,23 +2,23 @@
 /*                      Algemene styling                        */
 /****************************************************************/
 
-:root{
+:root {
   --background-color: #1E1E1C;
   --primary-color: #C6A965;
   --highlight-color: #FABF3D;
-  
+
 }
 
 @font-face {
-    font-family: "MyCustomFont";
-    src: url("../fonts/NotoSans-VariableFont_wdth_wght.ttf");
-  }
+  font-family: "MyCustomFont";
+  src: url("../fonts/NotoSans-VariableFont_wdth_wght.ttf");
+}
 
 
 body {
-    background-color: var(--background-color);
-    font-family: "MyCustomFont";
-    color: white;
+  background-color: var(--background-color);
+  font-family: "MyCustomFont";
+  color: white;
 }
 
 * {
@@ -33,21 +33,25 @@ header {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  height: 60px; /* Probeer dit van pixels te halen */
+  height: 5em;
+  /* TODO: Probeer dit van pixels te halen */
 
-  position: fixed;
+  /* position: fixed; */
   width: 100%;
   z-index: 12;
   top: 0;
 }
 
+/* logo */
 header img {
-  height: 35px; /* Probeer dit van pixels te halen */
+  height: 35px;
+  /* TODO:Probeer dit van pixels te halen */
 }
 
 nav ul {
   position: absolute;
-  top: 60px; /* Probeer dit van pixels te halen */
+  top: 60px;
+  /* TODO:Probeer dit van pixels te halen */
   left: 0;
   background-color: #333;
   width: 100%;
@@ -58,58 +62,190 @@ ul.hidden {
   display: none;
 }
 
-button{
+button {
   font-family: "MyCustomFont";
   font-weight: 1000;
   background: none;
   text-decoration: none;
-}
 
-button:hover{
-  color: var(--highlight-color);
-}
+  width: 5em;
+  height: 5em;
 
-nav ul li:hover{
-  color: var(--highlight-color);
-}
+  appearance: none;
+  font-size: 1em;
+  border: none;
 
-.active{
-  color: var(--highlight-color);
-}
-
-section{
   display: grid;
-  position: relative;
-  grid-template-rows: 1fr;
-  grid-template-columns: 1fr;
+  place-items: center;
+}
+
+button span {
+  grid-row-start: 1;
+  grid-column-start: 1;
+
+  display: block;
+  width: 2.5em;
+  height: 0.25em;
+  background-color: white;
+  transition: 0.8s;
+}
+
+/* Hamburger menu */
+button span:nth-of-type(1) {
+  translate: 0 -1em;
+}
+
+button span:nth-of-type(2) {
+  /* leeg */
+}
+
+button span:nth-of-type(3) {
+  translate: 0 1em;
+
+}
+
+
+
+button.open span:nth-of-type(1) {
+  translate: 0 0;
+  rotate: 45deg;
+}
+
+button.open span:nth-of-type(2) {
+  scale: 0 1;
+}
+
+button.open span:nth-of-type(3) {
+  translate: 0 0;
+  rotate: -45deg;
+}
+
+nav ul {
+  list-style-type: none;
+
+}
+
+nav ul li {
+  margin: 1em;
+}
+
+button:hover {
+  color: var(--highlight-color);
+}
+
+nav ul li:hover {
+  color: var(--highlight-color);
+}
+
+.active {
+  color: var(--highlight-color);
+}
+
+
+article {
+  grid-area: article;
+}
+
+section a:nth-of-type(2) {
+  grid-area: link1;
+}
+
+section a:nth-of-type(3) {
+  grid-area: link2;
+}
+
+
+
+
+section img {
+
   width: 100%;
-  gap: 1em;
+  height: auto;
 
 }
 
-.overlay-content {
-  grid-row: 0 / -1; /* Make overlay span the entire grid */
-  z-index: 2; /* Place above the image */
-  color: white; /* For visibility */
-  padding: 1rem; /* Optional spacing */
+
+
+section h2 {
+  bottom: 20%;
+  left: 5%;
+  font-size: 2rem;
 }
 
-h3:nth-of-type(1) {
-  color: var(--primary-color);
-}
-
-a:nth-of-type(1){
+section article a:nth-of-type(1) {
+  bottom: 10%;
+  left: 5%;
   border: var(--primary-color) 1px solid;
   padding: 1%;
-  margin: 1%;
+  margin: 0.5rem 0;
+  text-decoration: none;
 
 }
+
+section a:hover {
+  background-color: var(--highlight-color);
+  border-color: var(--highlight-color);
+  color: black;
+  cursor: pointer;
+
+  border-radius: 2em;
+  transition: 1s;
+}
+/* Section 3 */
+#section3-stappenplan h3{
+  text-align: center;
+  font-size: 2em;
+  font-weight: 800;
+  padding: 1em;
+}
+#section3-stappenplan p{
+  text-align: center;
+  padding: 1em;
+}
+
+#section3-stappenplan article{
+  margin: 0 3em;
+}
+#section3-stappenplan img:nth-of-type(1){
+  grid-area: stap1;
+}
+#section3-stappenplan img:nth-of-type(2){
+  grid-area: stap2;
+}
+#section3-stappenplan img:nth-of-type(3){
+  grid-area: stap3;
+}
+#section3-stappenplan img:nth-of-type(4){
+  grid-area: stap4;
+}
+
+/* Section 4 */
+#section4-sponsor img{
+  max-width: 5em;
+}
+
+
 /****************************************************************/
 /* styling voor phone */
 /****************************************************************/
-@media (min-width:38em) {
-  
-  
+@media (min-width:100px) {
+
+  #section1-abonneer {
+    display: grid;
+    grid-template-columns: 2fr;
+    grid-template-rows: 2fr 1fr 1fr ;
+    grid-template-areas:
+      "article"
+      "link1"
+      "link2"
+      ;
+    
+    grid-gap: 0.2rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    text-align: center;
+  }
+
 }
 
 
@@ -117,16 +253,83 @@ a:nth-of-type(1){
 /****************************************************************/
 /* styling voor tablet */
 /****************************************************************/
-@media (min-width:57em) {
-  section{
-    grid-template-columns:min-content 1fr;
+@media (min-width:500px) {
+
+  #section1-abonneer {
+    display: grid;
+    height: 100vh;
+    grid-template-columns:1fr 1fr;
+    grid-template-rows: 2fr .5fr;
+    grid-template-areas:
+      "article article"
+      "link1 link2"
+    ;
+    grid-gap: 0.2rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    text-align: center;
   }
 
+  #section2-schema{
+    display: flex;
+  }
+
+  #section3-stappenplan article{
+    display: grid;
+    height: 100vh;
+    grid-template-columns:1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    grid-template-areas:
+      "stap1 stap2"
+      "stap3 stap4"
+    ;
+    grid-gap: 0.2rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    text-align: center;
+  }
+  #section3-stappenplan img{
+      
+  }
+  #section4-sponsor{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+  }
 }
 
 /****************************************************************/
 /* styling voor desktop */
 /****************************************************************/
-@media (min-width:57em) {
-  
+@media (min-width:1325px) {
+  #section1-abonneer {
+    display: grid;
+    height: 100vh;
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr 1fr;
+    grid-template-areas:
+      "article link1"
+      "article link2"
+    ;
+    grid-gap: 0.2rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    text-align: center;
+    vertical-align: bottom;
+  }
+  #section3-stappenplan article{
+    display: grid;
+    height: 100vh;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-template-rows: 1fr;
+    grid-template-areas:
+      "stap1 stap2 stap3 stap4"
+    ;
+
+    grid-gap: 0.2rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    text-align: center;
+    vertical-align: bottom;
+  }
 }
+
