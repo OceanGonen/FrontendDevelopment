@@ -7,6 +7,8 @@
   --primary-color: #C6A965;
   --highlight-color: #FABF3D;
 
+  --custom-space: 3em;
+
 }
 
 @font-face {
@@ -14,6 +16,9 @@
   src: url("../fonts/NotoSans-VariableFont_wdth_wght.ttf");
 }
 
+html{
+  scroll-behavior: smooth;
+}
 
 body {
   background-color: var(--background-color);
@@ -28,6 +33,8 @@ body {
   font-size: 16px;
 }
 
+
+
 header {
   background-color: #333;
   display: flex;
@@ -37,9 +44,12 @@ header {
   /* TODO: Probeer dit van pixels te halen */
 
   /* position: fixed; */
-  width: 100%;
+
   z-index: 12;
   top: 0;
+
+  width: calc(100% - var(--custom-space));
+  margin-right: var(--custom-space);
 }
 
 /* logo */
@@ -141,6 +151,9 @@ nav ul li:hover {
   color: var(--highlight-color);
 }
 
+main{
+  margin-right: var(--custom-space);
+}
 
 article {
   grid-area: article;
@@ -223,6 +236,29 @@ section a:hover {
 #section4-sponsor img{
   max-width: 5em;
 }
+#section4-sponsor ul{
+  display: flex;
+  flex-wrap: wrap;
+}
+
+main > nav {
+  position: fixed;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  width: var(--custom-space);
+
+  background-color: orange;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+}
+
+main > nav > a{
+  margin: 1em;
+}
 
 
 /****************************************************************/
@@ -276,7 +312,7 @@ section a:hover {
 
   #section3-stappenplan article{
     display: grid;
-    height: 100vh;
+    /* height: 100vh; */
     grid-template-columns:1fr 1fr;
     grid-template-rows: 1fr 1fr;
     grid-template-areas:
