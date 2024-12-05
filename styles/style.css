@@ -36,20 +36,21 @@ body {
 
 
 header {
-  background-color: #333;
+  background-color: var(--background-color);
   display: flex;
   justify-content: space-between;
   align-items: center;
   height: 5em;
-  /* TODO: Probeer dit van pixels te halen */
+  border-bottom: solid 1px var(--primary-color);
 
   /* position: fixed; */
 
   z-index: 12;
   top: 0;
 
-  width: calc(100% - var(--custom-space));
+  width: 100%;
   margin-right: var(--custom-space);
+  position: sticky;
 }
 
 /* logo */
@@ -57,15 +58,21 @@ header img {
   height: 35px;
   /* TODO:Probeer dit van pixels te halen */
 }
+header img:hover {
+  cursor: pointer;
+  /* TODO:Probeer dit van pixels te halen */
+}
 
 nav ul {
   position: absolute;
-  top: 60px;
-  /* TODO:Probeer dit van pixels te halen */
+  top: 100%;
   left: 0;
-  background-color: #333;
+  background-color: var(--background-color);
   width: 100%;
-  border-top: 1px solid rgba(255, 255, 255, 0.2);
+/* TODO:Probeer dit van pixels te halen */
+
+  height: 1170%;
+  border-top: 1px solid var(--primary-color);
 }
 
 ul.hidden {
@@ -151,18 +158,87 @@ nav ul li:hover {
   color: var(--highlight-color);
 }
 
+h1{
+  font-size: 4em;
+  margin: 1em;
+  color: var(--primary-color)
+}
 main{
   margin-right: var(--custom-space);
 }
 
-article {
-  grid-area: article;
+main > nav {
+  position: fixed;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  border-left:solid 1px var(--primary-color);
+  width: var(--custom-space);
+
+  background-color: var(--background-color);
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  display: none;
+
 }
 
+main > nav > a{
+  margin: 1em;
+  padding: 1em;
+}
+#section1-abonneer > a{
+  border: solid 1px var(--primary-color);
+  font-size: 1.5em;
+}
+
+
+article {
+  grid-area: article;
+  display:grid;
+	grid-template-rows: max-content 1fr max-content max-content;
+}
+
+article h1{
+  grid-area:1/1/2/2;
+  z-index:1;
+	display:grid;
+	
+  font-size: 3em;
+}
+article h2{
+  grid-area:2/1/3/3;
+
+  z-index:1;
+	align-self:end;
+	
+	display:grid;
+	
+	color:white;
+  font-size: 5em;
+  font-weight: 1000;
+
+  margin: 5% 10%;
+}
+
+article a{
+  z-index:1;
+  grid-area:3/1/4/4;
+  max-width: max-content;
+
+}
+
+article h2 em {
+	color: var(--primary-color);
+  font-size: 4rem;
+  font-style: normal;
+}
+/* Koop een pas knop */
 section a:nth-of-type(2) {
   grid-area: link1;
 }
-
+/* Squash reserveringf */
 section a:nth-of-type(3) {
   grid-area: link2;
 }
@@ -171,27 +247,24 @@ section a:nth-of-type(3) {
 
 
 section img {
+  grid-area:1/1/4/4;
 
   width: 100%;
   height: auto;
-
+	display:block;
 }
 
 
 
-section h2 {
-  bottom: 20%;
-  left: 5%;
-  font-size: 2rem;
-}
 
 section article a:nth-of-type(1) {
-  bottom: 10%;
-  left: 5%;
-  border: var(--primary-color) 1px solid;
-  padding: 1%;
-  margin: 0.5rem 0;
+ 
+  border: var(--primary-color) 3px solid;
+  padding: .5% 5%;
+  margin:2% 0% 7% 7%;
   text-decoration: none;
+  border-radius: 20px;
+  font-size: 1.3em;
 
 }
 
@@ -201,9 +274,28 @@ section a:hover {
   color: black;
   cursor: pointer;
 
-  border-radius: 2em;
-  transition: 1s;
+  
+  transition: ease-in .5s;
 }
+/* #section2-schema article{
+  position: relative;
+  overflow: hidden;
+}
+#section2-schema article:hover{
+  top: 0;
+}
+#section2-schema article p{
+  color: white;
+  background-color: rgba(0,0,0,0.8);
+  position: absolute;
+  top: -100%;
+  height: 100%;
+  width: 100%;
+  padding: 10px;
+  box-sizing: border-box;
+  transition: all 0.4s;
+} */
+
 /* Section 3 */
 #section3-stappenplan h3{
   text-align: center;
@@ -234,32 +326,124 @@ section a:hover {
 
 /* Section 4 */
 #section4-sponsor img{
+  width: 100%;
+}
+#section4-sponsor h3{
+  margin: var(--custom-space);
+}
+#section4-sponsor ul li img{
   max-width: 5em;
 }
 #section4-sponsor ul{
   display: flex;
   flex-wrap: wrap;
+  list-style: none;
+  gap: var(--custom-space);
 }
 
-main > nav {
-  position: fixed;
-  right: 0;
-  top: 0;
-  bottom: 0;
-  width: var(--custom-space);
 
-  background-color: orange;
 
+
+footer{
   display: flex;
-  flex-direction: column;
-  justify-content: center;
-
+  justify-content: space-between;
+  padding: 1em;
+  background-color: var(--background-color);
+  color: var(--primary-color);
+  margin-top: 2em;
+  border-top: solid 1px var(--primary-color);
+  height: 20vh;
+}
+footer ul {
+  list-style: none;
+  padding: 0;
+  display:flex;
+  flex-wrap: wrap;
+  gap: 1em;
+}
+footer ul li {
+  color: var(--primary-color);
+  text-decoration: none;
+}
+footer address {
+  text-align: right;
+  color: var(--primary-color);
+  text-decoration: none;
 }
 
-main > nav > a{
+/****************************************************************/
+/* styling voor squash reservering */
+/****************************************************************/
+body > a{
+  background-color: var(--primary-color);
+  color: white;
+  padding: 1em 2em;
+  margin: 2em;
+  font-size: 1.5em;
+}
+
+body > h3{
+  padding: 0em 2em;
+  margin-top: 5%;
+  font-size: 2em;
+  font-weight: 300;
+}
+
+table{
+
   margin: 1em;
+  text-align: center;
+  overflow-x: auto;
+  width: 100%;
+  
+}
+table, th, td {
+  border:1px solid white;
+  padding: 1% auto;
 }
 
+th{
+  background-color: darkgray;
+}
+
+td[data-type="bookable"] {
+  background-color: var(--primary-color);
+  cursor: pointer;
+}
+td[data-type="bookable"]:hover {
+  background-color: var(--highlight-color);
+  cursor: pointer;
+}
+
+@keyframes bell-shake-animation {
+  0%, 80% {
+     rotate: 0deg; 
+    }
+  85% { 
+    rotate: -15deg; 
+  }
+  90% { 
+    rotate: 15deg; 
+  }
+  95% {
+    rotate: -15deg; 
+  }
+  100% { 
+    rotate: 0deg; 
+  }
+}
+
+
+table td img{
+  width: 25px;
+  margin-left: 1em;
+
+  animation-name: bell-shake-animation;
+  animation-delay: 2s;
+  animation-iteration-count: infinite;
+  animation-duration: 1s;
+  
+}
 
 /****************************************************************/
 /* styling voor phone */
@@ -278,8 +462,6 @@ main > nav > a{
     
     grid-gap: 0.2rem;
     font-weight: 800;
-    text-transform: uppercase;
-    text-align: center;
   }
 
 }
@@ -290,6 +472,17 @@ main > nav > a{
 /* styling voor tablet */
 /****************************************************************/
 @media (min-width:500px) {
+  main > nav {
+    display: flex; /* Show the sidebar on large screens */
+}
+
+header{
+  width: calc(100% - var(--custom-space));
+}
+footer{
+  width: calc(100% - var(--custom-space) - 2em);
+}
+
 
   #section1-abonneer {
     display: grid;
@@ -302,12 +495,11 @@ main > nav > a{
     ;
     grid-gap: 0.2rem;
     font-weight: 800;
-    text-transform: uppercase;
-    text-align: center;
   }
 
   #section2-schema{
     display: flex;
+    justify-content: center;
   }
 
   #section3-stappenplan article{
@@ -321,14 +513,15 @@ main > nav > a{
     ;
     grid-gap: 0.2rem;
     font-weight: 800;
-    text-transform: uppercase;
     text-align: center;
   }
-  #section3-stappenplan img{
-      
-  }
-  #section4-sponsor{
+  /* #section3-stappenplan{
+      width: auto;
+      margin-right: 3em;
+  } */
+  #section4-sponsor ul{
     display: grid;
+    justify-items: center;
     grid-template-columns: 1fr 1fr;
   }
 }
@@ -337,20 +530,29 @@ main > nav > a{
 /* styling voor desktop */
 /****************************************************************/
 @media (min-width:1325px) {
+
+ 
   #section1-abonneer {
     display: grid;
-    height: 100vh;
-    grid-template-columns: 1fr;
+    height: auto;
+    margin-bottom: 2em;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
     grid-template-rows: 1fr 1fr;
     grid-template-areas:
-      "article link1"
-      "article link2"
+      "article article article link1"
+      "article article article link2"
     ;
     grid-gap: 0.2rem;
     font-weight: 800;
-    text-transform: uppercase;
-    text-align: center;
     vertical-align: bottom;
+  }
+  #section1-abonneer > a{
+    /* align-self: end; */
+  }
+
+
+  #section2-schema{
+    margin-top: 2em;
   }
   #section3-stappenplan article{
     display: grid;
@@ -363,9 +565,20 @@ main > nav > a{
 
     grid-gap: 0.2rem;
     font-weight: 800;
-    text-transform: uppercase;
     text-align: center;
     vertical-align: bottom;
   }
+
+  table{
+    max-width: 90%;
+    align-self: center;
+  }
 }
 
+@media (prefers-color-scheme: light) {
+  body {
+    background-color: #fff;
+      color: black;
+  }
+
+}
