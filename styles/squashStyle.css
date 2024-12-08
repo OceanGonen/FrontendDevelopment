@@ -1,0 +1,129 @@
+/****************************************************************/
+/* styling voor squash reservering */
+/****************************************************************/
+body > a{
+    background-color: var(--primary-color);
+    color: white;
+    padding: 1em 2em;
+    margin: 2em;
+    font-size: 1.5em;
+  }
+  
+  body > h3{
+    padding: 0em 2em;
+    margin-top: 5%;
+    font-size: 2em;
+    font-weight: 300;
+  }
+
+  h1{
+    font-size: 4em;
+    margin: 1em;
+    color: var(--primary-color)
+  }
+  
+  table{
+  
+    margin: 1em;
+    text-align: center;
+    overflow-x: auto;
+    width: 100%;
+    
+  }
+  table, th, td {
+    border:1px solid white;
+    padding: 1% auto;
+  }
+  
+  th{
+    background-color: darkgray;
+  }
+  
+  td[data-type="bookable"] {
+    background-color: var(--primary-color);
+    cursor: pointer;
+  }
+  td[data-type="bookable"]:hover {
+    background-color: var(--highlight-color);
+    cursor: pointer;
+  }
+  
+  @keyframes bell-shake-animation {
+    0%, 80% {
+       rotate: 0deg; 
+      }
+    85% { 
+      rotate: -15deg; 
+    }
+    90% { 
+      rotate: 15deg; 
+    }
+    95% {
+      rotate: -15deg; 
+    }
+    100% { 
+      rotate: 0deg; 
+    }
+  }
+  
+  
+  table td img{
+    width: 25px;
+    margin-left: 1em;
+  
+    animation-name: bell-shake-animation;
+    animation-delay: 2s;
+    animation-iteration-count: infinite;
+    animation-duration: 1s;
+    
+  }
+
+  /****************************************************************/
+  /* styling voor phone */
+  /****************************************************************/
+  @media (min-width:100px) {
+  
+
+  
+  }
+  
+  
+  
+  /****************************************************************/
+  /* styling voor tablet */
+  /****************************************************************/
+  @media (min-width:500px) {
+    main > nav {
+      display: flex; /* Show the sidebar on large screens */
+  }
+  
+  header{
+    width: calc(100% - var(--custom-space));
+  }
+  footer{
+    width: calc(100% - var(--custom-space) - 2em);
+  }
+
+  
+    
+  }
+  
+  /****************************************************************/
+  /* styling voor desktop */
+  /****************************************************************/
+  @media (min-width:1325px) {
+  
+
+    table{
+      max-width: 90%;
+      align-self: center;
+    }
+  }
+  
+  @media (prefers-color-scheme: light) {
+    body {
+      background-color: #fff;
+        color: black;
+    }
+  
+  }

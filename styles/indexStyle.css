@@ -1,0 +1,490 @@
+h1 {
+    font-size: 1em;
+    margin: 1em;
+    color: var(--primary-color)
+}
+
+
+
+main>nav {
+    position: fixed;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    border-left: solid 1px var(--primary-color);
+    width: var(--custom-space);
+
+    background-color: var(--background-color);
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    display: none;
+
+}
+
+main>nav>a {
+    margin: 1em;
+    padding: 1em;
+}
+
+section:nth-of-type(1)>a {
+    border: solid 1px var(--primary-color);
+    font-size: 1.5em;
+    /* aspect-ratio: 1; */
+    background-color: var(--background-color);
+    height: 100%;
+    width: 100%;
+
+    font-weight: 500;
+    display: flex;
+    align-items: flex-end;
+    padding: 0 0 1% 1%;
+
+    text-decoration: none;
+    background-image:
+        linear-gradient(25deg,
+        var(--highlight-color) 30%,
+        var(--background-color) 0);
+
+    background-size: 100% 240%;
+    background-position: top left;
+
+    transition: .7s;
+}
+
+section:nth-of-type(1)>a:hover {
+    background-position: left bottom;
+    color: black;
+}
+
+/* Koop een pas knop */
+section a:nth-of-type(2) {
+    grid-area: link1;
+   
+}
+
+/* Squash reservering */
+section a:nth-of-type(3) {
+    grid-area: link2;
+
+
+    text-decoration: none;
+}
+article {
+    grid-area: article;
+}
+
+section:nth-of-type(1) article {
+    display: grid;
+    grid-template-rows: max-content 1fr max-content max-content;
+    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+        url("../images/actualBGcomplete.png");
+    background-size: cover;
+
+
+}
+
+article h1 {
+    grid-area: 1/1/2/2;
+    z-index: 1;
+    display: grid;
+}
+
+article h2 {
+    grid-area: 2/1/3/3;
+
+    z-index: 1;
+    align-self: center;
+
+    display: grid;
+
+    color: white;
+    font-size: 5em;
+    font-weight: 1000;
+
+    margin: 5% 10%;
+}
+
+article a {
+    z-index: 1;
+    grid-area: 3/1/4/4;
+    max-width: max-content;
+
+}
+
+article h2 em {
+    color: var(--primary-color);
+    font-size: 4rem;
+    font-style: normal;
+}
+
+
+
+
+
+
+section img {
+    grid-area: 1/1/4/4;
+
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+
+
+/* zie aanbod knop */
+section article a:nth-of-type(1) {
+
+    border: var(--primary-color) 3px solid;
+    padding: 1% 6%;
+    margin: 2% 0% 7% 7%;
+    text-decoration: none;
+    border-radius: 15px;
+    font-size: 1em;
+    font-weight: 400;
+
+}
+
+section article a:hover {
+    background-color: var(--highlight-color);
+    border-color: var(--highlight-color);
+    color: black;
+    cursor: pointer;
+
+
+    transition: ease-in .5s;
+}
+
+/* Section 2 */
+section:nth-of-type(2) {
+    margin: var(--custom-space);
+}
+section:nth-of-type(2) article h2 {
+    text-align: center;
+    align-self: center;
+    /* cursor: pointer; */
+}
+
+section:nth-of-type(2) article {
+    width: 100%;
+    background-color: black;
+    background-image:
+        linear-gradient(20deg,
+        var(--highlight-color) 25%,
+        var(--background-color) 0);
+
+    background-size: 100% 200%;
+    background-position: top left;
+
+    transition: .7s;
+}
+
+section:nth-of-type(2) article img {
+    opacity: 0.8;
+   
+}
+section:nth-of-type(2) article:hover {
+    cursor: pointer;
+    background-position: left bottom;
+    z-index: 0;
+    opacity: 1;
+
+}
+
+/* Section 3 */
+#section3-stappenplan h3 {
+    text-align: center;
+    font-size: 2em;
+    font-weight: 800;
+    padding: 1em;
+}
+
+#section3-stappenplan p {
+    text-align: center;
+    padding: 1em;
+}
+
+#section3-stappenplan article {
+    margin: 0 3em;
+}
+
+#section3-stappenplan img:nth-of-type(1) {
+    grid-area: stap1;
+}
+
+#section3-stappenplan img:nth-of-type(2) {
+    grid-area: stap2;
+}
+
+#section3-stappenplan img:nth-of-type(3) {
+    grid-area: stap3;
+}
+
+#section3-stappenplan img:nth-of-type(4) {
+    grid-area: stap4;
+}
+section:nth-of-type(3) article {
+    
+}
+
+section:nth-of-type(3) article img {
+    opacity: 0.8;
+
+    width: 100%;
+    background-color: black;
+    background-image:
+        linear-gradient(20deg,
+        var(--highlight-color) 30%,
+        var(--background-color) 0);
+
+    background-size: 100% 200%;
+    background-position: top left;
+
+    transition: .7s;
+   
+}
+section:nth-of-type(3) img:hover {
+    cursor: pointer;
+    background-position: left bottom;
+    z-index: 0;
+    opacity: 1;
+
+}
+/* Section 4 */
+section:nth-of-type(4) > a {
+    width: 100%;
+    height: 100%;
+    background-color: black;
+    background-image:
+        linear-gradient(20deg,
+        var(--highlight-color) 25%,
+        var(--background-color) 0);
+
+    background-size: 100% 200%;
+    background-position: top left;
+
+    transition: .7s;
+}
+
+
+section:nth-of-type(4) a:hover {
+    cursor: pointer;
+    background-position: left bottom;
+    z-index: 0;
+    opacity: 1;
+
+}
+section:nth-of-type(4) {
+    background-image: url("../images/sponsor-background.jpg");
+    background-size: cover;
+}
+
+#section4-sponsor h3 {
+    margin: var(--custom-space);
+}
+
+#section4-sponsor ul li img {
+    max-width: 5em;
+}
+
+#section4-sponsor ul {
+    display: flex;
+    flex-wrap: wrap;
+    list-style: none;
+    gap: var(--custom-space);
+    background-color: rgba(0, 0, 0, 0.5);
+    padding: var(--custom-space);
+    margin: var(--custom-space);
+}
+
+
+
+
+
+
+
+/****************************************************************/
+/* styling voor phone */
+/****************************************************************/
+@media (min-width:100px) {
+
+    h1 {
+        font-size: 1em;
+        margin: 1em;
+    }
+
+    article h2 {
+
+        font-size: 2em;
+        margin: 5% 10%;
+    }
+
+    article h2 em {
+        font-size: 2rem;
+    }
+
+    section:nth-of-type(1) {
+        display: grid;
+        grid-template-columns: 2fr;
+        grid-template-rows: 2fr 1fr 1fr;
+        grid-template-areas:
+            "article"
+            "link1"
+            "link2"
+        ;
+
+        grid-gap: 0.2rem;
+        font-weight: 800;
+    }
+
+
+}
+
+
+
+/****************************************************************/
+/* styling voor tablet */
+/****************************************************************/
+@media (min-width:500px) {
+    main>nav {
+        display: flex;
+    }
+    main {
+        margin-right: var(--custom-space);
+    }
+
+    header {
+        width: calc(100% - var(--custom-space));
+    }
+
+    footer {
+        width: calc(100% - var(--custom-space) - 2em);
+    }
+
+    h1 {
+        font-size: 2em;
+        margin: 1em;
+    }
+
+    article h2 {
+
+        font-size: 3em;
+        margin: 5% 10%;
+    }
+
+    article h2 em {
+        font-size: 3rem;
+    }
+
+
+    section:nth-of-type(1) {
+        display: grid;
+        height: 100vh;
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: 2fr .5fr;
+        grid-template-areas:
+            "article article"
+            "link1 link2"
+        ;
+        grid-gap: 0.2rem;
+        font-weight: 800;
+    }
+
+    #section2-schema {
+        display: flex;
+        justify-content: center;
+    }
+
+    #section3-stappenplan article {
+        display: grid;
+        /* height: 100vh; */
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: 1fr 1fr;
+        grid-template-areas:
+            "stap1 stap2"
+            "stap3 stap4"
+        ;
+        grid-gap: 0.2rem;
+        font-weight: 800;
+        text-align: center;
+    }
+
+    /* #section3-stappenplan{
+        width: auto;
+        margin-right: 3em;
+    } */
+    #section4-sponsor ul {
+        display: grid;
+        justify-items: center;
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+/****************************************************************/
+/* styling voor desktop */
+/****************************************************************/
+@media (min-width:1125px) {
+
+    h1 {
+        font-size: 2em;
+        margin: 1em;
+    }
+
+    article h2 {
+
+        font-size: 3em;
+        margin: 5% 10%;
+    }
+
+    article h2 em {
+        font-size: 3rem;
+    }
+
+    section:nth-of-type(1) {
+        display: grid;
+        height: auto;
+        margin-bottom: 2em;
+        grid-template-columns: 1fr 1fr 1fr 1fr;
+        grid-template-rows: 1fr 1fr;
+        grid-template-areas:
+            "article article article link1"
+            "article article article link2"
+        ;
+        grid-gap: 0.2rem;
+        font-weight: 800;
+        vertical-align: bottom;
+    }
+
+
+
+    #section2-schema {
+        margin-top: 2em;
+    }
+
+    #section3-stappenplan article {
+        display: grid;
+        height: 100vh;
+        grid-template-columns: 1fr 1fr 1fr 1fr;
+        grid-template-rows: 1fr;
+        grid-template-areas:
+            "stap1 stap2 stap3 stap4"
+        ;
+
+        grid-gap: 0.2rem;
+        font-weight: 800;
+        text-align: center;
+        vertical-align: bottom;
+    }
+
+
+}
+
+@media (prefers-color-scheme: light) {
+    body {
+        background-color: #fff;
+        color: black;
+    }
+
+}
