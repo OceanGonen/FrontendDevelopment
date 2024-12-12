@@ -4,63 +4,112 @@
 
 :root {
   --background-color: #1E1E1C;
+  --header-background: #1E1E1C;
+
   --primary-color: #C6A965;
   --highlight-color: #FABF3D;
+  --text-color: #fff;
+  --text-color-black: #000;
 
   --custom-space: 3em;
+}
+
+[data-theme="light"] {
+  --background-color: #D3D3D3;
+  --text-color: #929292;
+  --header-background: #cfdbd5;
+
+  /* --primary-color: #4682A9;
+  --highlight-color: #91C8E4; */
 
 }
+
+/* logo and icon color, default black */
+/* ChatGTP, prompt: "img
+  filter: how could i make a svg go from white to grey using this method? */
+/* orange */
+header>a>img:hover {
+  filter: invert(0.5) sepia(1) saturate(5) hue-rotate(9deg) brightness(1.1);
+}
+
+/* [data-theme="light"] header>a>img:hover {
+  filter: invert(0.3) sepia(1) saturate(10) hue-rotate(190deg) brightness(0.9);
+} */
+[data-theme="light"] header>a>img:hover {
+  filter: invert(0.5) sepia(1) saturate(5) hue-rotate(9deg) brightness(1.1);
+}
+
+/* gray */
+[data-theme="light"] header>a>img {
+  filter: invert(0) grayscale(1) brightness(0.57);
+}
+
+/* toggle theme button, default black */
+/* gray */
+[data-theme="light"] header>button>img {
+  filter: invert(1) grayscale(1) brightness(0.57);
+}
+
+/* white */
+header>button>img {
+  filter: invert(100%) sepia(100%) saturate(0%) hue-rotate(45deg) brightness(100%) contrast(100%);
+}
+
+header>button>img:hover {
+  filter: invert(0.5) sepia(1) saturate(5) hue-rotate(9deg) brightness(1.1);
+}
+
+/* [data-theme="light"] header>button>img:hover {
+  filter: invert(0.3) sepia(1) saturate(10) hue-rotate(190deg) brightness(0.9);
+} */
 
 @font-face {
   font-family: "MyCustomFont";
   src: url("../fonts/NotoSans-VariableFont_wdth_wght.ttf");
 }
 
-html{
+html {
   scroll-behavior: smooth;
 }
 
 body {
   background-color: var(--background-color);
   font-family: "MyCustomFont";
-  color: white;
+  color: var(--text-color);
 }
 
 * {
   margin: 0;
   padding: 0;
-  color: #fff;
+  color: var(--text-color);
   font-size: 16px;
 }
 
 
 
 header {
-  background-color: var(--background-color);
+  background-color: var(--header-background);
   display: flex;
   justify-content: space-between;
   align-items: center;
   height: 5em;
   border-bottom: solid 1px var(--primary-color);
 
-  /* position: fixed; */
 
   z-index: 12;
   top: 0;
 
   width: 100%;
-  margin-right: var(--custom-space);
   position: sticky;
 }
 
 /* logo */
 header img {
-  height: 35px;
-  /* TODO:Probeer dit van pixels te halen */
+  height: 2.3em;
 }
+
 header img:hover {
   cursor: pointer;
-  /* TODO:Probeer dit van pixels te halen */
 }
 
 nav ul {
@@ -69,8 +118,6 @@ nav ul {
   left: 0;
   background-color: var(--background-color);
   width: 100%;
-/* TODO:Probeer dit van pixels te halen */
-
   height: 1170%;
   border-top: 1px solid var(--primary-color);
 }
@@ -81,7 +128,7 @@ ul.hidden {
 
 button {
   font-family: "MyCustomFont";
-  font-weight: 1000;
+  font-weight: 700;
   background: none;
   text-decoration: none;
 
@@ -110,18 +157,19 @@ button span {
 /* Hamburger menu */
 button span:nth-of-type(1) {
   translate: 0 -1em;
+  background-color: var(--text-color);
 }
 
 button span:nth-of-type(2) {
   /* leeg */
+  background-color: var(--text-color);
+
 }
 
 button span:nth-of-type(3) {
   translate: 0 1em;
-
+  background-color: var(--text-color);
 }
-
-
 
 button.open span:nth-of-type(1) {
   translate: 0 0;
@@ -158,7 +206,7 @@ nav ul li:hover {
   color: var(--highlight-color);
 }
 
-footer{
+footer {
   display: flex;
   justify-content: space-between;
   padding: 1em;
@@ -168,19 +216,32 @@ footer{
   border-top: solid 1px var(--primary-color);
   height: 20vh;
 }
+
+[data-theme="light"] footer {
+  background-color: var(--header-background);
+}
+
 footer ul {
   list-style: none;
   padding: 0;
-  display:flex;
+  display: flex;
   flex-wrap: wrap;
   gap: 1em;
 }
+
 footer ul li {
   color: var(--primary-color);
   text-decoration: none;
 }
+
 footer address {
   text-align: right;
   color: var(--primary-color);
   text-decoration: none;
+}
+
+:focus {
+  outline-offset: 4px;
+  /*   4. ChatGTP, prompt: can i make the :focus outline automatically contrast with the background? */
+  mix-blend-mode: difference;
 }

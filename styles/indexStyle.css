@@ -1,9 +1,29 @@
+:root {
+    --background-color: #1E1E1C;
+    --primary-color: #C6A965;
+    --highlight-color: #FABF3D;
+    --text-color: #fff;
+
+    --custom-space: 3em;
+
+}
+
+header {
+    margin-right: var(--custom-space);
+}
+
 h1 {
     font-size: 1em;
     margin: 1em;
-    color: var(--primary-color)
+    color: var(--primary-color);
+    display: none
 }
 
+h2 {
+    font-size: 1em;
+    margin: 1em;
+    color: var(--primary-color);
+}
 
 
 main>nav {
@@ -14,7 +34,7 @@ main>nav {
     border-left: solid 1px var(--primary-color);
     width: var(--custom-space);
 
-    background-color: var(--background-color);
+    background-color: var(--header-background);
 
     display: flex;
     flex-direction: column;
@@ -31,7 +51,6 @@ main>nav>a {
 section:nth-of-type(1)>a {
     border: solid 1px var(--primary-color);
     font-size: 1.5em;
-    /* aspect-ratio: 1; */
     background-color: var(--background-color);
     height: 100%;
     width: 100%;
@@ -39,13 +58,13 @@ section:nth-of-type(1)>a {
     font-weight: 500;
     display: flex;
     align-items: flex-end;
-    padding: 0 0 1% 1%;
+
 
     text-decoration: none;
     background-image:
         linear-gradient(25deg,
-        var(--highlight-color) 30%,
-        var(--background-color) 0);
+            var(--highlight-color) 30%,
+            var(--background-color) 0);
 
     background-size: 100% 240%;
     background-position: top left;
@@ -58,10 +77,15 @@ section:nth-of-type(1)>a:hover {
     color: black;
 }
 
-/* Koop een pas knop */
+section a:nth-of-type(1) ul {
+    list-style: none;
+
+}
+
+/* Purchase a pass knop */
 section a:nth-of-type(2) {
     grid-area: link1;
-   
+
 }
 
 /* Squash reservering */
@@ -71,13 +95,14 @@ section a:nth-of-type(3) {
 
     text-decoration: none;
 }
+
 article {
     grid-area: article;
 }
 
 section:nth-of-type(1) article {
     display: grid;
-    grid-template-rows: max-content 1fr max-content max-content;
+    grid-template-rows: 1fr 1fr 1fr max-content max-content;
     background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
         url("../images/actualBGcomplete.png");
     background-size: cover;
@@ -85,10 +110,12 @@ section:nth-of-type(1) article {
 
 }
 
-article h1 {
-    grid-area: 1/1/2/2;
-    z-index: 1;
-    display: grid;
+[data-theme="light"] section:nth-of-type(1) article {
+    background: linear-gradient(rgba(0, 0, 0, 0.05), rgba(0, 0, 0, 0.05)),
+        url("../images/actualBGcomplete.png");
+    background-size: cover;
+
+
 }
 
 article h2 {
@@ -144,13 +171,15 @@ section article a:nth-of-type(1) {
     border-radius: 15px;
     font-size: 1em;
     font-weight: 400;
+    color: white;
+    align-self: center;
 
 }
 
 section article a:hover {
     background-color: var(--highlight-color);
     border-color: var(--highlight-color);
-    color: black;
+    color: var(--background-color);
     cursor: pointer;
 
 
@@ -161,19 +190,28 @@ section article a:hover {
 section:nth-of-type(2) {
     margin: var(--custom-space);
 }
+
 section:nth-of-type(2) article h2 {
     text-align: center;
     align-self: center;
-    /* cursor: pointer; */
+    grid-area: 2 / 2 / 3 / 3;
 }
 
+
 section:nth-of-type(2) article {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(3, 1fr);
+    grid-column-gap: 0px;
+    grid-row-gap: 0px;
+
+
     width: 100%;
     background-color: black;
     background-image:
         linear-gradient(20deg,
-        var(--highlight-color) 25%,
-        var(--background-color) 0);
+            var(--highlight-color) 25%,
+            var(--background-color) 0);
 
     background-size: 100% 200%;
     background-position: top left;
@@ -183,8 +221,10 @@ section:nth-of-type(2) article {
 
 section:nth-of-type(2) article img {
     opacity: 0.8;
-   
+    grid-area: 1 / 1 / 4 / 4;
+
 }
+
 section:nth-of-type(2) article:hover {
     cursor: pointer;
     background-position: left bottom;
@@ -194,39 +234,52 @@ section:nth-of-type(2) article:hover {
 }
 
 /* Section 3 */
-#section3-stappenplan h3 {
+section:nth-of-type(3) h3 {
     text-align: center;
     font-size: 2em;
     font-weight: 800;
     padding: 1em;
 }
 
-#section3-stappenplan p {
+section:nth-of-type(3) p {
     text-align: center;
     padding: 1em;
 }
 
-#section3-stappenplan article {
+section:nth-of-type(3) article {
     margin: 0 3em;
 }
 
-#section3-stappenplan img:nth-of-type(1) {
+section:nth-of-type(3) img:nth-of-type(1) {
     grid-area: stap1;
 }
 
-#section3-stappenplan img:nth-of-type(2) {
+section:nth-of-type(3) img:nth-of-type(2) {
     grid-area: stap2;
 }
 
-#section3-stappenplan img:nth-of-type(3) {
+section:nth-of-type(3) img:nth-of-type(3) {
     grid-area: stap3;
 }
 
-#section3-stappenplan img:nth-of-type(4) {
+section:nth-of-type(3) img:nth-of-type(4) {
     grid-area: stap4;
 }
-section:nth-of-type(3) article {
-    
+
+section:nth-of-type(3) h3 em {
+    color: var(--primary-color);
+    font-size: inherit;
+    font-style: normal;
+}
+
+section:nth-of-type(3) p {
+    text-align: center;
+    justify-self: center;
+    justify-content: center;
+    align-self: center;
+    align-items: center;
+    align-content: center;
+
 }
 
 section:nth-of-type(3) article img {
@@ -236,15 +289,16 @@ section:nth-of-type(3) article img {
     background-color: black;
     background-image:
         linear-gradient(20deg,
-        var(--highlight-color) 30%,
-        var(--background-color) 0);
+            var(--highlight-color) 30%,
+            var(--background-color) 0);
 
     background-size: 100% 200%;
     background-position: top left;
 
     transition: .7s;
-   
+
 }
+
 section:nth-of-type(3) img:hover {
     cursor: pointer;
     background-position: left bottom;
@@ -252,15 +306,16 @@ section:nth-of-type(3) img:hover {
     opacity: 1;
 
 }
+
 /* Section 4 */
-section:nth-of-type(4) > a {
+section:nth-of-type(4)>a {
     width: 100%;
     height: 100%;
     background-color: black;
     background-image:
         linear-gradient(20deg,
-        var(--highlight-color) 25%,
-        var(--background-color) 0);
+            var(--highlight-color) 25%,
+            var(--background-color) 0);
 
     background-size: 100% 200%;
     background-position: top left;
@@ -276,20 +331,21 @@ section:nth-of-type(4) a:hover {
     opacity: 1;
 
 }
+
 section:nth-of-type(4) {
     background-image: url("../images/sponsor-background.jpg");
     background-size: cover;
 }
 
-#section4-sponsor h3 {
+section:nth-of-type(4) h3 {
     margin: var(--custom-space);
 }
 
-#section4-sponsor ul li img {
+section:nth-of-type(4) ul li img {
     max-width: 5em;
 }
 
-#section4-sponsor ul {
+section:nth-of-type(4) ul {
     display: flex;
     flex-wrap: wrap;
     list-style: none;
@@ -347,16 +403,28 @@ section:nth-of-type(4) {
 /****************************************************************/
 /* styling voor tablet */
 /****************************************************************/
-@media (min-width:500px) {
+@media (min-width:600px) {
     main>nav {
         display: flex;
     }
+
     main {
         margin-right: var(--custom-space);
     }
 
-    header {
-        width: calc(100% - var(--custom-space));
+    main>nav>a>span {
+        display: inline-block;
+        /* Allows width, height, and border-radius to work */
+        border-radius: 50%;
+        width: 10px;
+        height: 10px;
+        background-color: var(--primary-color);
+    }
+
+
+
+    nav>a>span {
+        transition: box-shadow 0.3s ease, background-color 0.3s ease;
     }
 
     footer {
@@ -392,14 +460,13 @@ section:nth-of-type(4) {
         font-weight: 800;
     }
 
-    #section2-schema {
+    section:nth-of-type(2) {
         display: flex;
         justify-content: center;
     }
 
-    #section3-stappenplan article {
+    section:nth-of-type(3) article {
         display: grid;
-        /* height: 100vh; */
         grid-template-columns: 1fr 1fr;
         grid-template-rows: 1fr 1fr;
         grid-template-areas:
@@ -411,11 +478,7 @@ section:nth-of-type(4) {
         text-align: center;
     }
 
-    /* #section3-stappenplan{
-        width: auto;
-        margin-right: 3em;
-    } */
-    #section4-sponsor ul {
+    section:nth-of-type(4) ul {
         display: grid;
         justify-items: center;
         grid-template-columns: 1fr 1fr;
@@ -459,11 +522,11 @@ section:nth-of-type(4) {
 
 
 
-    #section2-schema {
+    section:nth-of-type(2) {
         margin-top: 2em;
     }
 
-    #section3-stappenplan article {
+    section:nth-of-type(3) article {
         display: grid;
         height: 100vh;
         grid-template-columns: 1fr 1fr 1fr 1fr;
@@ -482,9 +545,13 @@ section:nth-of-type(4) {
 }
 
 @media (prefers-color-scheme: light) {
-    body {
-        background-color: #fff;
-        color: black;
+    :root {
+        --background-color: #F6F4EB;
+        --text-color: #929292;
+        --header-background: #cfdbd5;
+
+        --primary-color: #4682A9;
+        --highlight-color: #91C8E4;
     }
 
 }

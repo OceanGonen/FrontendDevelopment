@@ -1,129 +1,241 @@
 /****************************************************************/
 /* styling voor squash reservering */
 /****************************************************************/
-body > a{
+
+:root {
+    --background-color: #1E1E1C;
+    --header-background: #1E1E1C;
+
+    --primary-color: #C6A965;
+    --highlight-color: #FABF3D;
+    --text-color: #fff;
+
+    --custom-space: 3em;
+
+    --th--background: darkgray;
+
+}
+
+
+body>a {
     background-color: var(--primary-color);
     color: white;
-    padding: 1em 2em;
-    margin: 2em;
-    font-size: 1.5em;
-  }
-  
-  body > h3{
+}
+
+body>section>h3 {
     padding: 0em 2em;
     margin-top: 5%;
-    font-size: 2em;
     font-weight: 300;
-  }
+}
 
-  h1{
+h1 {
     font-size: 4em;
     margin: 1em;
     color: var(--primary-color)
-  }
-  
-  table{
-  
+}
+
+header {
+    border-bottom: solid 2px var(--primary-color);
+}
+
+section {
+    display: grid;
+    grid-template-columns: max-content 1fr max-content max-content;
+    margin-top: var(--custom-space);
+}
+
+
+/* input dropdown */
+select {
+    padding: 0.5em;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    height: 2em;
+    align-self: center;
+    margin-right: var(--custom-space);
+    color: var(--text-color-black);
+
+    grid-area: 1/4/1/5;
+}
+
+select option {
+    color: var(--text-color-black);
+}
+
+label {
+    
+    align-self: center;
+
+    grid-area: 1/3/1/4;
+}
+
+table {
+
     margin: 1em;
     text-align: center;
     overflow-x: auto;
     width: 100%;
-    
-  }
-  table, th, td {
-    border:1px solid white;
+
+}
+
+table,
+th,
+td {
+    border: 1px solid white;
     padding: 1% auto;
-  }
-  
-  th{
-    background-color: darkgray;
-  }
-  
-  td[data-type="bookable"] {
+}
+
+th {
+    background-color: var(--th--background);
+    color: var(--background-color);
+
+}
+
+td[data-type="bookable"] {
     background-color: var(--primary-color);
     cursor: pointer;
-  }
-  td[data-type="bookable"]:hover {
+    color: var(--background-color);
+    border: solid 1px var(--highlight-color);
+
+}
+
+td[data-type="bookable"]:hover {
     background-color: var(--highlight-color);
     cursor: pointer;
-  }
-  
-  @keyframes bell-shake-animation {
-    0%, 80% {
-       rotate: 0deg; 
-      }
-    85% { 
-      rotate: -15deg; 
+    color: var(--text-color);
+    border: solid 1px var(--primary-color);
+
+
+}
+
+[data-theme="light"]td[data-type="bookable"] {
+    color: var(--background-color);
+    cursor: pointer;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+    @keyframes bell-shake-animation {
+
+        0%,
+        80% {
+            rotate: 0deg;
+        }
+
+        85% {
+            rotate: -15deg;
+        }
+
+        90% {
+            rotate: 15deg;
+        }
+
+        95% {
+            rotate: -15deg;
+        }
+
+        100% {
+            rotate: 0deg;
+        }
     }
-    90% { 
-      rotate: 15deg; 
-    }
-    95% {
-      rotate: -15deg; 
-    }
-    100% { 
-      rotate: 0deg; 
-    }
-  }
-  
-  
-  table td img{
+}
+
+table td img {
     width: 25px;
     margin-left: 1em;
-  
+
     animation-name: bell-shake-animation;
     animation-delay: 2s;
     animation-iteration-count: infinite;
     animation-duration: 1s;
-    
-  }
 
-  /****************************************************************/
-  /* styling voor phone */
-  /****************************************************************/
-  @media (min-width:100px) {
-  
+}
 
-  
-  }
-  
-  
-  
-  /****************************************************************/
-  /* styling voor tablet */
-  /****************************************************************/
-  @media (min-width:500px) {
-    main > nav {
-      display: flex; /* Show the sidebar on large screens */
-  }
-  
-  header{
-    width: calc(100% - var(--custom-space));
-  }
-  footer{
-    width: calc(100% - var(--custom-space) - 2em);
-  }
+[data-theme="light"] table {
+    border: solid 2px var(--primary-color);
+}
 
-  
-    
-  }
-  
-  /****************************************************************/
-  /* styling voor desktop */
-  /****************************************************************/
-  @media (min-width:1325px) {
-  
-
-    table{
-      max-width: 90%;
-      align-self: center;
+/****************************************************************/
+/* styling voor phone */
+/****************************************************************/
+@media (min-width:100px) {
+    h1 {
+        font-size: 2em;
     }
-  }
-  
-  @media (prefers-color-scheme: light) {
+
+    body>a {
+        padding: 1em 2em;
+        margin: 2em;
+        font-size: 1em;
+    }
+
+    body>section>h3 {
+        font-size: 1em;
+        font-weight: 300;
+    }
+
+    select {
+        font-size: .9em;
+        border: 1px solid #ccc;
+        height: 2em;
+        
+    }
+    
+    label {
+        font-size: .7em;
+        margin-right: 0.5em;
+    }
+
+
+}
+
+
+
+/****************************************************************/
+/* styling voor tablet */
+/****************************************************************/
+@media (min-width:575px) {
+    main>nav {
+        display: flex;
+        /* Show the sidebar on large screens */
+    }
+
+    h1 {
+        font-size: 3em;
+    }
+
+    body>a {
+        padding: 1em 2em;
+        margin: 2em;
+        font-size: 1.5em;
+    }
+
+    body>section>h3 {
+        font-size: 1.5em;
+        font-weight: 300;
+    }
+
+}
+
+/****************************************************************/
+/* styling voor desktop */
+/****************************************************************/
+@media (min-width:1325px) {
+
+    body>section>h3 {
+        font-size: 2em;
+        font-weight: 300;
+    }
+
+    table {
+        max-width: 90%;
+        align-self: center;
+    }
+}
+
+@media (prefers-color-scheme: light) {
     body {
-      background-color: #fff;
+        background-color: #fff;
         color: black;
     }
-  
-  }
+
+}
