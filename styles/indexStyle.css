@@ -528,7 +528,6 @@ section:nth-of-type(4) ul {
 
     section:nth-of-type(3) article {
         display: grid;
-        height: 100vh;
         grid-template-columns: 1fr 1fr 1fr 1fr;
         grid-template-rows: 1fr;
         grid-template-areas:

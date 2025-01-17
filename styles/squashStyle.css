@@ -17,13 +17,12 @@
 }
 
 
-body>a {
+body>main>a {
     background-color: var(--primary-color);
     color: white;
 }
 
-body>section>h3 {
-    padding: 0em 2em;
+body>main>section>h3 {
     margin-top: 5%;
     font-weight: 300;
 }
@@ -38,12 +37,24 @@ header {
     border-bottom: solid 2px var(--primary-color);
 }
 
-section {
-    display: grid;
-    grid-template-columns: max-content 1fr max-content max-content;
-    margin-top: var(--custom-space);
+
+main>section>button {
+    background-color: var(--primary-color);
+    height: 2em;
+    width: max-content;
+    padding: 0 1em;
+    margin: 1em;
+    border-radius: 5px;
+    box-shadow: #fff 10px;
 }
 
+main>section>button:focus {
+    color: black;
+}
+
+main>section>button:disabled {
+    display: none;
+}
 
 /* input dropdown */
 select {
@@ -55,7 +66,8 @@ select {
     margin-right: var(--custom-space);
     color: var(--text-color-black);
 
-    grid-area: 1/4/1/5;
+    grid-area: 1/7/1/8;
+    justify-self: end;
 }
 
 select option {
@@ -63,20 +75,19 @@ select option {
 }
 
 label {
-    
+
     align-self: center;
 
-    grid-area: 1/3/1/4;
+    grid-area: 1/6/1/7;
 }
 
 table {
-
-    margin: 1em;
     text-align: center;
     overflow-x: auto;
     width: 100%;
 
 }
+
 
 table,
 th,
@@ -158,18 +169,24 @@ table td img {
 /* styling voor phone */
 /****************************************************************/
 @media (min-width:100px) {
+
     h1 {
-        font-size: 2em;
+        font-size: 1.5em;
     }
 
-    body>a {
+    body>main>a {
         padding: 1em 2em;
         margin: 2em;
         font-size: 1em;
     }
 
-    body>section>h3 {
+    main>a:nth-of-type(1) {
+        padding: 3%;
         font-size: 1em;
+    }
+
+    body>main>section>h3 {
+        font-size: 1.5em;
         font-weight: 300;
     }
 
@@ -177,15 +194,87 @@ table td img {
         font-size: .9em;
         border: 1px solid #ccc;
         height: 2em;
-        
+
     }
-    
+
     label {
-        font-size: .7em;
+        font-size: 1em;
         margin-right: 0.5em;
+        justify-self: end;
+    }
+
+    table[data-number="2"] tr *:not( :nth-child(2)),
+    table[data-number="3"] tr *:not( :nth-child(3)),
+    table[data-number="4"] tr *:not( :nth-child(4)),
+    table[data-number="5"] tr *:not( :nth-child(5)),
+    table[data-number="6"] tr *:not( :nth-child(6)),
+    table[data-number="7"] tr *:not( :nth-child(7)),
+    table[data-number="8"] tr *:not( :nth-child(8)) {
+        display: none;
+    }
+
+    th,
+    td {
+        height: 2em;
+        padding: 1em;
+    }
+
+    section {
+        display: grid;
+        grid-template-columns: repeat(2, max-content);
+        grid-template-rows: repeat(3, 1fr);
+        grid-column-gap: 0px;
+        grid-row-gap: 0px;
+        justify-content: center;
+
+        margin-top: var(--custom-space);
+    }
+
+    h3 {
+        grid-area: 1 / 1 / 2 / 2;
+    }
+
+    label {
+        grid-area: 2 / 1 / 3 / 2;
+    }
+
+    select {
+        grid-area: 2 / 2 / 3 / 3;
+    }
+
+    main>section>button:nth-of-type(1) {
+        grid-area: 3 / 1 / 4 / 2;
+    }
+
+    main>section>button:nth-of-type(2) {
+        grid-area: 3 / 2 / 4 / 3;
+    }
+
+    main>a:nth-of-type(2) {
+        position: sticky;
+        bottom: 5%;
+        margin-right: 6%;
+        float: right;
+        text-decoration: none;
+        padding: 1em;
+        background: #000;
+        border-radius: 100px;
+        border: solid white 1px;
+        transition: opacity 0.3s, transform 0.3s;
+
+        z-index: 3;
+
+        cursor: pointer;
+    }
+
+    footer {
+        width: 92%;
     }
 
 
+}
+@media (min-width:575px) {
+    
 }
 
 
@@ -193,11 +282,7 @@ table td img {
 /****************************************************************/
 /* styling voor tablet */
 /****************************************************************/
-@media (min-width:575px) {
-    main>nav {
-        display: flex;
-        /* Show the sidebar on large screens */
-    }
+@media (min-width:700px) {
 
     h1 {
         font-size: 3em;
@@ -214,12 +299,61 @@ table td img {
         font-weight: 300;
     }
 
+    select {
+        font-size: .9em;
+        height: 2em;
+        grid-area: 2 / 3 / 3 / -3;
+
+
+    }
+
+    label {
+        font-size: 1em;
+        grid-area: 2 / 2 / 3 / 2;
+
+    }
+
+    h3 {
+        grid-area: 2 / 1 / 3 / 2;
+        margin-right: 1em;
+        margin-left: 1em;
+
+    }
+
+    table[data-number="2"] tr *:not( :nth-child(2)),
+    table[data-number="3"] tr *:not( :nth-child(3)),
+    table[data-number="4"] tr *:not( :nth-child(4)),
+    table[data-number="5"] tr *:not( :nth-child(5)),
+    table[data-number="6"] tr *:not( :nth-child(6)),
+    table[data-number="7"] tr *:not( :nth-child(7)),
+    table[data-number="8"] tr *:not( :nth-child(8)) {
+        display: table-cell;
+    }
+
+    section {
+        display: grid;
+        grid-template-columns: max-content 1fr max-content max-content;
+        margin-top: var(--custom-space);
+    }
+
+    main>section>button {
+        display: none;
+    }
+
+    footer {
+        width: 98%;
+    }
+
 }
 
 /****************************************************************/
 /* styling voor desktop */
 /****************************************************************/
 @media (min-width:1325px) {
+
+    main>a:nth-of-type(1) {
+        padding: 2%;
+    }
 
     body>section>h3 {
         font-size: 2em;
